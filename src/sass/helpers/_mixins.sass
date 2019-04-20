@@ -1,0 +1,197 @@
+// width
+=r($width)
+  @media only screen and (max-width: $width+ "px")
+    @content
+
+=rmin($width)
+  @media only screen and (min-width: $width+ "px")
+    @content
+
+// height
+=rh($height)
+  @media only screen and (max-height: $height + "px")
+    @content
+
+=rhmin($height)
+  @media only screen and (min-height: $height + "px")
+    @content
+
+@mixin css-lock($min-size: 1, $max-size: 1.4, $min-width: 20, $max-width: 100, $property: font-size, $unit: px)
+  #{$property}: #{$max-size}#{$unit}
+  #{$property}: calc(#{$min-size}#{$unit} + (#{$max-size} - #{$min-size}) * ((100vw - #{$min-width}#{$unit}) / (#{$max-width} - #{$min-width})))
+  @media (max-width: #{$min-width}#{$unit})
+    #{$property}: #{$min-size}#{$unit}
+  @media (min-width: #{$max-width}#{$unit})
+    #{$property}: #{$max-size}#{$unit}
+    
+=fs($sizeValue: 16)
+  font-size: $sizeValue + px
+  font-size: $sizeValue / 10 + rem
+
+=text-overflow
+  overflow: hidden
+  text-overflow: ellipsis
+  white-space: nowrap
+
+=hover
+  .no-touch &:hover
+    @content
+
+=coverdiv
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+
+=cover
+  background-repeat: no-repeat
+  background-size: cover
+  background-position: 50% 50%
+
+// vertical-align at center
+=vcenter
+  position: absolute
+  top: 50%
+  left: 50%
+  transform: translate(-50%,-50%)
+
+// font-family 
+=font($alias, $name)
+  @font-face
+    font-family: $alias
+    src: url("../fonts/" + $name + ".woff2") format("woff2"), url("../fonts/" + $name + ".woff") format("woff")
+    font-weight: normal
+    font-style: normal
+    font-display: swap
+// to use:
+//+font(black, cytiapro-black-webfont)
+
+=hide-text
+  font: 0/0 a
+  text-shadow: none
+  color: transparent
+
+=hidetext
+  +hide-text
+
+// IMPORTANT!!!! REQUIRES SPACES BETWEEN ELEMENTS, NO SUCH STUFF: </li><li>
+=justify
+  text-align: justify
+  line-height: 0
+  font-size: 0
+  text-justify: newspaper
+  text-align-last: justify
+  &:after
+    content: ""
+    display: inline-block
+    width: 100%
+    height: 0px
+    visibility: hidden
+    overflow: hidden
+=vertical
+  text-align: center
+  font-size: 0
+  &:before
+    content: ""
+    display: inline-block
+    vertical-align: middle
+    width: 0
+    height: 100%
+
+=clr
+  &:after
+    content: " "
+    display: table
+    clear: both
+
+=placeholder
+  &::placeholder
+    @content
+
+//triangle
+=arr($width, $height, $bg, $direction)
+  width: 0px
+  height: 0px
+  border-style: solid
+  @if $direction == t
+    border-width: 0 $width / 2 + px $height + px $width / 2 + px
+    border-color: transparent transparent $bg transparent
+  @if $direction == r
+    border-width: $height / 2 + px 0 $height / 2 + px $width + px
+    border-color: transparent transparent transparent $bg
+  @if $direction == b
+    border-width: $height + px $width / 2 + px 0 $width / 2 + px
+    border-color: $bg transparent transparent transparent
+  @if $direction == l
+    border-width: $height / 2 + px $width + px $height / 2 + px 0
+    border-color: transparent $bg transparent transparent
+  @if $direction == tl
+    border-width: $height + px $width + px 0 0
+    border-color: $bg transparent transparent transparent
+  @if $direction == tr
+    border-width: 0 $width + px $height + px 0
+    border-color: transparent $bg transparent transparent
+  @if $direction == br
+    border-width: 0 0 $height + px $width + px
+    border-color: transparent transparent $bg transparent
+  @if $direction == bl
+    border-width: $width + px 0 0 $height + px
+    border-color: transparent transparent transparent $bg
+// example
+// +arr(500,50, #000, l)
+// +arr(500,50, #000, bl)
+
+=rotate($var)
+  transform: rotate($var+deg)
+  
+=scale($var)
+  transform: scale($var)
+
+=counter($var, $sep)
+  counter-reset: list + $var
+  > li
+    &:before
+      content: counter(list + $var) $sep
+      counter-increment: list + $var
+
+//icon close
+=icon-close($size, $line-width, $color)
+  position: relative
+  display: inline-block
+  width: $size + px
+  height: $size + px
+  &::before,
+  &::after
+    position: absolute
+    content: ''
+    width: $line-width + px
+    height: 100%
+    background-color: $color
+    top: 0
+    left: 50%
+  &::before
+    transform: rotate(45deg)
+  &::after
+    transform: rotate(-45deg)
+//example +icon-close(15, 2, #000)
+//icon arrow
+=icon-arrow($width, $height, $bd-width, $color, $angle)
+  width: $width + px
+  height: $height + px
+  border-left: $bd-width + px solid $color
+  border-bottom: $bd-width + px solid $color
+  transform: rotate($angle + deg)
+//example +icon-arrow(20, 20, 2, #000, 45)
+
+=no-scroll
+  &.no-scroll
+    overflow: hidden
+  .no-touch &.no-scroll
+    margin-right: 17px
+
+// BG-IMAGE
+@function img-url($image)
+  @return url('../img/#{$image}')
+=image($image)
+  background-image: img-url($image)
