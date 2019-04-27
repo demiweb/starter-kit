@@ -19,12 +19,10 @@ var config = {
         img          : 'src/img',
         svg          : 'src/img/svg',
         icons        : 'src/icons',
-        // path to png sources for sprite:png task
-        iconsPng     : 'src/icons',
-        // path to svg sources for sprite:svg task
-        iconsSvg     : 'src/icons',
+        iconsHTML    : 'src/templates/partials/icons',
         fonts        : 'src/fonts',
-        lib          : 'src/lib'
+        lib          : 'src/lib',
+        data         : 'src/data'
     },
     dest: {
         root : destPath,
@@ -33,7 +31,8 @@ var config = {
         js   : destPath + '/js',
         img  : destPath + '/img',
         fonts: destPath + '/fonts',
-        lib  : destPath + '/lib'
+        lib  : destPath + '/lib',
+        data : destPath + '/data'
     },
 
     setEnv: function(env) {

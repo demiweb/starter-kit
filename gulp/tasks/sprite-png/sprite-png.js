@@ -6,7 +6,7 @@ var imagemin    = require('gulp-imagemin');
 var config      = require('../../config');
 
 gulp.task('sprite:png', function() {
-    var spriteData = gulp.src(config.src.iconsPng + '/*.png')
+    var spriteData = gulp.src(config.src.icons + '/*.png')
     .pipe(plumber({
         errorHandler: config.errorHandler
     }))
@@ -36,5 +36,5 @@ gulp.task('sprite:png', function() {
 });
 
 gulp.task('sprite:png:watch', function() {
-    gulp.watch(config.src.iconsPng + '/*.png', ['sprite:png']);
+    gulp.watch(config.src.icons + '/*.png', ['sprite:png']);
 });
