@@ -6,7 +6,7 @@ function build(cb) {
     runSequence(
         'clean',
         'svgicons',
-        'sprite:png',
+        // 'sprite:png',
         'svgo',
         'sass',
         'nunjucks',

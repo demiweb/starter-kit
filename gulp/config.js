@@ -19,7 +19,7 @@ var config = {
         img          : 'src/img',
         svg          : 'src/img/svg',
         icons        : 'src/icons',
-        iconsHTML    : 'src/templates/partials/icons',
+        iconsHTML    : 'src/templates/icons',
         fonts        : 'src/fonts',
         lib          : 'src/lib',
         data         : 'src/data'

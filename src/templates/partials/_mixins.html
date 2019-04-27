@@ -1,3 +1,13 @@
 {% macro icon(i) %}
-<svg class="icon icon-{{i}}"><use xlink:href="img/sprite.svg#icon-{{i}}"></use></svg>
+<!-- begin icon-{{ i }} -->
+  {% include 'icons/_'+ i +'.html' %}
+<!-- end icon-{{ i }} -->
+{% endmacro %}
+
+{% macro btn(href = "#", title, mod, attributes) %}
+  {% if href %}
+  <a href="{{ href }}" class="btn {{ mod }}" {% for attr, attr_value in attributes %} {{ attr }}="{{ attr_value }}" {% endfor %}>{{ title | safe }}</a>
+  {% else %}
+  <button class="btn {{ mod }}" {% for attr, attr_value in attributes %} {{ attr }}="{{ attr_value }}" {% endfor %}>{{ title | safe }}</button>
+  {% endif %}
 {% endmacro %}

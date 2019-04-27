@@ -8,7 +8,7 @@ var path    = require('path');
 var del     = require('del');
 var util    = require('gulp-util');
 
-gulp.task('clean-html-icons', function(cb) {
+gulp.task('clean-htmlicons', function(cb) {
     return del([
         config.src.iconsHTML+'/*.html'
     ]).then(function(paths) {
@@ -16,7 +16,7 @@ gulp.task('clean-html-icons', function(cb) {
     });
 });
 
-gulp.task('create-svgicons', function () {
+gulp.task('create-htmlicons', function () {
     return gulp.src(config.src.icons + '/*.svg')
         .pipe(svgmin({
           js2svg: {
@@ -44,20 +44,23 @@ gulp.task('create-svgicons', function () {
         })))
         .pipe(cheerio({
             run: function($, file) {            
-                var className = path.basename(file.relative, path.extname(file.relative));
+                var iconName = path.basename(file.relative, path.extname(file.relative));
                 var svg = $('svg');
 
-                svg.attr('class', 'icon icon-' + className);
+                svg.attr('class', 'icon icon-' + iconName);
             },
             parserOptions: { xmlMode: false }
         }))
-        .pipe(rename({ extname: '.html' }))
+        .pipe(rename({
+            prefix: '_',
+            extname: '.html'
+        }))
         .pipe(gulp.dest(config.src.iconsHTML));
 });
 
 gulp.task('svgicons', [
-    'clean-html-icons',
-    'create-svgicons'
+    'clean-htmlicons',
+    'create-htmlicons'
 ]);
 
 gulp.task('svgicons:watch', function () {

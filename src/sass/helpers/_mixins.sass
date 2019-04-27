@@ -106,6 +106,8 @@
     clear: both
 
 =placeholder
+  &:-ms-input-placeholder
+    @content
   &::placeholder
     @content
 
@@ -147,6 +149,9 @@
   
 =scale($var)
   transform: scale($var)
+
+=tr($what...)
+  transition: $what
 
 =counter($var, $sep)
   counter-reset: list + $var
@@ -195,3 +200,13 @@
   @return url('../img/#{$image}')
 =image($image)
   background-image: img-url($image)
+
+=before
+  &::before
+    content: ''
+    @content
+
+=after
+  &::after
+    content: ''
+    @content
