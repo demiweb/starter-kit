@@ -43,9 +43,14 @@ gulp.task('create-htmlicons', function () {
           ]
         })))
         .pipe(cheerio({
-            run: function($, file) {            
+            run: function($, file) {
                 var iconName = path.basename(file.relative, path.extname(file.relative));
                 var svg = $('svg');
+                var svgStyle = svg.attr('style');
+                
+                if (svgStyle && svgStyle.indexOf('enable-background') !== -1) {
+                    svg.removeAttr('style');
+                };
 
                 svg.attr('class', 'icon icon-' + iconName);
             },

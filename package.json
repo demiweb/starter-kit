@@ -62,7 +62,6 @@
     "require-dir": "^1.0.0",
     "require-yaml": "^0.0.1",
     "run-sequence": "^2.2.1",
-    "svg-use-it": "^1.1.6",
     "vinyl-buffer": "^1.0.0",
     "webpack": "^4.6.0",
     "webpack-bundle-analyzer": "^2.11.1",
