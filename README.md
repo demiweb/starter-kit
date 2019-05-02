@@ -23,12 +23,12 @@ Task name          | Description
 ### Other tasks
 Task name          | Description                                                      
 :------------------|:----------------------------------
-`sass` 	         | compile .sass/.scss to .css. We also use [postcss](https://github.com/postcss/postcss) for [autoprefixer](https://github.com/postcss/autoprefixer) and [Lost](https://github.com/peterramsing/lost), so feel free to include other awesome postcss [plugins](https://github.com/postcss/postcss#plugins) when needed
+`sass` 	           | compile .sass/.scss to .css. We also use [postcss](https://github.com/postcss/postcss) for [autoprefixer](https://github.com/postcss/autoprefixer) and [Lost](https://github.com/peterramsing/lost), so feel free to include other awesome postcss [plugins](https://github.com/postcss/postcss#plugins) when needed
 `webpack`          | compile .js sources into bundle file
 `copy`             | copy common files from `./src` path to `./build` path
 `nunjucks`         | compile Mozilla's awesome [nunjucks](https://mozilla.github.io/nunjucks/) templates
 `svgo`             | optimize svg files with [svgo](https://github.com/svg/svgo)
-`sprite:svg`       | create svg symbol sprites ([css-tricks](https://css-tricks.com/svg-sprites-use-better-icon-fonts/))
+`svgicons`         | create html files in partials from svg to use it inline
 `sprite:png`       | create png sprites
 `server`           | run dev-server powered by [BrowserSync](https://www.browsersync.io/)
 `clean`            | remove `./build` folder

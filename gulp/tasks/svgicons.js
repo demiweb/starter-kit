@@ -52,7 +52,14 @@ gulp.task('create-htmlicons', function () {
                     svg.removeAttr('style');
                 };
 
+                var h = svg.attr('height') || svg.attr('viewBox').split(' ')[3];
+                var w = svg.attr('width') || svg.attr('viewBox').split(' ')[2];
+                var height = '1em';
+                var width = (w/h).toFixed(3)  + 'em';
+
                 svg.attr('class', 'icon icon-' + iconName);
+                svg.attr('width', width);
+                svg.attr('height', height);
             },
             parserOptions: { xmlMode: false }
         }))
