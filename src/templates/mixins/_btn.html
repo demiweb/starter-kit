@@ -1,9 +1,3 @@
-{% macro icon(i) %}
-<!-- begin icon-{{ i }} -->
-  {% include 'icons/_'+ i +'.html' %}
-<!-- end icon-{{ i }} -->
-{% endmacro %}
-
 {% macro btn(href = "#", title, mod, attributes) %}
   {% if href %}
   <a href="{{ href }}" class="btn {{ mod }}" {% for attr, attr_value in attributes %} {{ attr }}="{{ attr_value }}" {% endfor %}>{{ title | safe }}</a>

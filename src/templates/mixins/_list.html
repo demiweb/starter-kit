@@ -1,0 +1,19 @@
+{% macro list(name, modifications, list) %}
+<!-- begin {{ name }} -->
+{% if name === 'nav' %}
+<nav class="{{ name }} {{ modifications.wrap }}">
+{% else %}
+<div class="{{ name }} {{ modifications.wrap }}">
+{% endif %}
+  <ul class="{{ name }}__list {{ modifications.list }}">
+    {% for i in list %}
+    <li class="{{ name }}__item {{ modifications.item }} {{ i.modItem }}"><a href="{% if i.href %}{{ i.href }}{% else %}#{% endif %}" class="{{ name }}__link {{ modifications.link }} {{ i.modLink }}">{{ i.item | safe}}</a></li>
+    {% endfor %}
+  </ul>
+{% if name === 'nav' %}
+</nav>
+{% else %}
+</div>
+{% endif %}
+<!-- end {{ name }} -->
+{% endmacro %}

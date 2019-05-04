@@ -23,10 +23,6 @@
     #{$property}: #{$min-size}#{$unit}
   @media (min-width: #{$max-width}#{$unit})
     #{$property}: #{$max-size}#{$unit}
-    
-=fs($sizeValue: 16)
-  font-size: $sizeValue + px
-  font-size: $sizeValue / 10 + rem
 
 =text-overflow
   overflow: hidden
@@ -150,6 +146,9 @@
 =scale($var)
   transform: scale($var)
 
+=trsl($x, $y)
+  transform: translate($x, $y)
+
 =tr($what...)
   transition: $what
 
@@ -179,15 +178,18 @@
     transform: rotate(45deg)
   &::after
     transform: rotate(-45deg)
-//example +icon-close(15, 2, #000)
-//icon arrow
+// example
+// +icon-close(15, 2, #000)
+
+// icon arrow
 =icon-arrow($width, $height, $bd-width, $color, $angle)
   width: $width + px
   height: $height + px
   border-left: $bd-width + px solid $color
   border-bottom: $bd-width + px solid $color
   transform: rotate($angle + deg)
-//example +icon-arrow(20, 20, 2, #000, 45)
+// example
+// +icon-arrow(20, 20, 2, #000, 45)
 
 =no-scroll
   &.no-scroll
@@ -210,3 +212,19 @@
   &::after
     content: ''
     @content
+
+=notlast
+  &:not(:last-child)
+    @content
+
+=flex($justify-content: flex-start, $align-items: normal, $flex-direction: row, $flex-wrap: nowrap)
+  display: flex
+  justify-content: $justify-content
+  align-items: $align-items
+  flex-direction: $flex-direction
+  flex-wrap: $flex-wrap
+
+=inline-flex($justify-content: flex-start, $align-items: normal)
+  display: inline-flex
+  justify-content: $justify-content
+  align-items: $align-items
