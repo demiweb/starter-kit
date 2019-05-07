@@ -15,7 +15,8 @@ export const {
   NOTOUCH,
   ERROR,
   HASTEXT,
-  VALID
+  VALID,
+  FIXED
 } = {
   $DOC: $(document),
   $WIN: $(window),
@@ -33,5 +34,6 @@ export const {
   NOTOUCH: 'no-touch',
   ERROR: 'has-error',
   HASTEXT: 'has-text',
-  VALID: 'is-valid'
+  VALID: 'is-valid',
+  FIXED: 'is-fixed'
 };

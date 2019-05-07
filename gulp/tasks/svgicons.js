@@ -52,8 +52,8 @@ gulp.task('create-htmlicons', function () {
                     svg.removeAttr('style');
                 };
 
-                var h = svg.attr('height') || svg.attr('viewBox').split(' ')[3];
-                var w = svg.attr('width') || svg.attr('viewBox').split(' ')[2];
+                var h = +svg.attr('height') || +svg.attr('viewBox').split(' ')[3];
+                var w = +svg.attr('width') || +svg.attr('viewBox').split(' ')[2];
                 var height = '1em';
                 var width = (w/h).toFixed(3)  + 'em';
 

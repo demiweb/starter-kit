@@ -5,9 +5,9 @@
 {% else %}
 <div class="{{ name }} {{ modifications.wrap }}">
 {% endif %}
-  <ul class="{{ name }}__list {{ modifications.list }}">
+  <ul {% if modifications.list %}class="{{ modifications.list }}"{% endif %}>
     {% for i in list %}
-    <li class="{{ name }}__item {{ modifications.item }} {{ i.modItem }}"><a href="{% if i.href %}{{ i.href }}{% else %}#{% endif %}" class="{{ name }}__link {{ modifications.link }} {{ i.modLink }}">{{ i.item | safe}}</a></li>
+    <li {% if modifications.item or i.modItem %}class="{{ modifications.item }} {{ i.modItem }}"{% endif %}>{% if i.item %}{{ i.item | safe }}{% endif %} {% if i.link %}<a href="{% if i.href %}{{ i.href }}{% else %}#{% endif %}" {% if modifications.link or i.modLink %}class="{{ modifications.link }} {{ i.modLink }}"{% endif %}>{{ i.link | safe }}</a>{% endif %}</li>
     {% endfor %}
   </ul>
 {% if name === 'nav' %}

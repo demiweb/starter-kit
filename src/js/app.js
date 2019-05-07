@@ -1,4 +1,4 @@
-import setTouchClassName from './setTouchClassName.js';
+import setTouchClassName from './components/setTouchClassName';
 
 $(function() {
   setTouchClassName();

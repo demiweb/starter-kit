@@ -1,0 +1,20 @@
+{% macro input(name, mod, type = 'text', placeholder, value, options, fieldClass) %}
+<!-- begin {{ name }} -->
+<div class="{{ name }}{% if mod %} {{mod}}{% endif %}">
+  {% if name === 'input' %}
+  <input {% if fieldClass %}class="{{ fieldClass }}"{% endif %} type="{{ type }}" placeholder="{{ placeholder }}" value="{{value}}">
+
+  {% elseif name === 'select' %}
+
+  <select {% if fieldClass %}class="{{ fieldClass }}"{% endif %} data-type="{{ type }}">
+    {% for i in options %}
+    <option value="{{ i.value }}">{{ i.option }}</option>
+    {% endfor %}
+  </select>
+
+  {% elseif name === 'textarea' %}
+  <textarea {% if fieldClass %}class="{{ fieldClass }}"{% endif %} placeholder="{{ placeholder }}" value="{{value}}"></textarea>
+  {% endif %}
+</div>
+<!-- end {{ name }} -->
+{% endmacro %}

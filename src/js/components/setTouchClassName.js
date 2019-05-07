@@ -1,5 +1,5 @@
-import isTouch from './lib/detectTouch.js';
-import { $HTML, NOTOUCH } from './constants.js';
+import isTouch from '../lib/detectTouch';
+import { $HTML, NOTOUCH } from '../constants';
 
 export default function setTouchClassName() {
   if (!isTouch()) {
