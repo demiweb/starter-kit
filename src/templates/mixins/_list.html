@@ -1,19 +1,34 @@
-{% macro list(name, modifications, list) %}
-<!-- begin {{ name }} -->
-{% if name === 'nav' %}
-<nav class="{{ name }} {{ modifications.wrap }}">
+{% macro list(name, descr, modifications, list) %}
+{% if descr %}
+  <!-- begin {{ name }} -->
+  <div class="{{ name }} {{ modifications.wrap }}">
+    <dl {% if modifications.list %}class="{{ modifications.list }}"{% endif %}>
+      {% for i in list %}
+      <dt {% if modifications.dt or i.modItemDt %}class="{{ modifications.dt }} {{ i.modItemDt }}"{% endif %}>{% if i.dt %}{{ i.dt | safe }}{% endif %}{% if i.link %}<a href="{% if i.href %}{{ i.href }}{% else %}#{% endif %}" {% if modifications.link or i.modLink %}class="{{ modifications.link }} {{ i.modLink }}"{% endif %}>{{ i.link | safe }}</a>{% endif %}</dt>
+      <dd {% if modifications.dd or i.modItemDl %}class="{{ modifications.dd }} {{ i.modItemDl }}"{% endif %}>{% if i.dd %}{{ i.dd | safe }}{% endif %}{% if i.link %}<a href="{% if i.href %}{{ i.href }}{% else %}#{% endif %}" {% if modifications.link or i.modLink %}class="{{ modifications.link }} {{ i.modLink }}"{% endif %}>{{ i.link | safe }}</a>{% endif %}</dd>
+      {% endfor %}
+    </dl>
+  </div>
+  <!-- end {{ name }} -->
+
 {% else %}
-<div class="{{ name }} {{ modifications.wrap }}">
+
+  <!-- begin {{ name }} -->
+  {% if name === 'nav' %}
+  <nav class="{{ name }} {{ modifications.wrap }}">
+  {% else %}
+  <div class="{{ name }} {{ modifications.wrap }}">
+  {% endif %}
+    <ul {% if modifications.list %}class="{{ modifications.list }}"{% endif %}>
+      {% for i in list %}
+      <li {% if modifications.item or i.modItem %}class="{{ modifications.item }} {{ i.modItem }}"{% endif %}>{% if i.item %}{{ i.item | safe }}{% endif %}{% if i.link %}<a href="{% if i.href %}{{ i.href }}{% else %}#{% endif %}" {% if modifications.link or i.modLink %}class="{{ modifications.link }} {{ i.modLink }}"{% endif %}>{{ i.link | safe }}</a>{% endif %}</li>
+      {% endfor %}
+    </ul>
+  {% if name === 'nav' %}
+  </nav>
+  {% else %}
+  </div>
+  {% endif %}
+  <!-- end {{ name }} -->
 {% endif %}
-  <ul {% if modifications.list %}class="{{ modifications.list }}"{% endif %}>
-    {% for i in list %}
-    <li {% if modifications.item or i.modItem %}class="{{ modifications.item }} {{ i.modItem }}"{% endif %}>{% if i.item %}{{ i.item | safe }}{% endif %} {% if i.link %}<a href="{% if i.href %}{{ i.href }}{% else %}#{% endif %}" {% if modifications.link or i.modLink %}class="{{ modifications.link }} {{ i.modLink }}"{% endif %}>{{ i.link | safe }}</a>{% endif %}</li>
-    {% endfor %}
-  </ul>
-{% if name === 'nav' %}
-</nav>
-{% else %}
-</div>
-{% endif %}
-<!-- end {{ name }} -->
 {% endmacro %}
