@@ -10,7 +10,7 @@
     "lint-fix": "npm run lint -- --fix"
   },
   "lint-staged": {
-    "src/templates/**/*.html": [
+    "build/**/*.html": [
       "htmlhint --config .htmlhintrc"
     ]
   },
