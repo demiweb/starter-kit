@@ -3,6 +3,8 @@
 <head lang="en">
   <meta charset="UTF-8">
   <title>template</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <style>
     @font-face {
         font-family: 'oswald_lightregular';
@@ -24,6 +26,9 @@
       --white: #fff;
       --reg: 'oswaldregular', sans-serif;
       --light: 'oswald_lightregular',sans-serif;
+      --fz: 20px;
+      --padding-vertical: 30px;
+      --padding-sides: 30px;
     }
 
     *{
@@ -42,14 +47,14 @@
     body {
       color: var(--black);
       margin: 0;
-      padding: 0 40px;
-      font-size: 20px;
+      padding: 0;
+      font-size: var(--fz);
       line-height: 1.6;
       font-family: var(--light);
     }    
 
     section{
-      padding: 30px 0;
+      padding: var(--padding-vertical) var(--padding-sides);
     }
     
     iframe{
@@ -63,6 +68,10 @@
       z-index: 1;
       top: 100%;
       left: 50%;
+    }
+
+    .pagelist {
+      padding-left: 20px;
     }
 
     .pagelist li:not(:last-child){
@@ -97,11 +106,10 @@
     }
 
     @media (max-width: 767px){
-      body{
-        padding: 0;
-      }
-      section{
-        padding: 0;
+      :root {
+        --padding-vertical: 15px;
+        --padding-sides: 10px;
+        --fz: 18px;
       }
     }
   </style>
