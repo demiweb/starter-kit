@@ -23,7 +23,7 @@ Task name          | Description
 ### Other tasks
 Task name          | Description                                                      
 :------------------|:----------------------------------
-`sass` 	           | compile .sass/.scss to .css. We also use [postcss](https://github.com/postcss/postcss) for [autoprefixer](https://github.com/postcss/autoprefixer) and [Lost](https://github.com/peterramsing/lost), so feel free to include other awesome postcss [plugins](https://github.com/postcss/postcss#plugins) when needed
+`sass` 	           | compile .sass/.scss to .css. We also use [postcss](https://github.com/postcss/postcss), so feel free to include other awesome postcss [plugins](https://github.com/postcss/postcss#plugins) when needed
 `webpack`          | compile .js sources into bundle file
 `copy`             | copy common files from `./src` path to `./build` path
 `nunjucks`         | compile Mozilla's awesome [nunjucks](https://mozilla.github.io/nunjucks/) templates
@@ -42,7 +42,6 @@ _All available tasks are placed in a folder `./gulp/tasks` as separate *.js file
 We have several useful flags.
 
 * `gulp --open` or `gulp server --open` - run dev server and then open preview in browser
-* `gulp --tunnel=[name]` or `gulp server --tunnel [name]` - runs dev server and allows you to easily share a web service on your local development machine (powered by [localtunnel.me](https://localtunnel.me/)). Your local site will be available at `[name].localtunnel.me`.
 * `gulp [task_name] --prod` or `gulp [task_name] --production` - run task in production mode. Some of the tasks (like, sass or js compilation) have additional settings for production mode (such as code minification), so with this flag you can force production mode. `gulp build` uses this mode by default.
 
 ##Other
