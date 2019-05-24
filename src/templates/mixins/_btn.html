@@ -5,6 +5,11 @@
       <span class="btn__title">{{ title | safe }}</span>
       <span class="btn__icon">{{ icon | safe }}</span>
     </a>
+    {% elseif span %}
+    <span class="btn {{ mod }}" {% for attr, attr_value in attributes %} {{ attr }}="{{ attr_value }}" {% endfor %}>
+      <span class="btn__title">{{ title | safe }}</span>
+      <span class="btn__icon">{{ icon | safe }}</span>
+    </span>
     {% else %}
     <button class="btn {{ mod }}" {% for attr, attr_value in attributes %} {{ attr }}="{{ attr_value }}" {% endfor %}>
       <span class="btn__title">{{ title | safe }}</span>

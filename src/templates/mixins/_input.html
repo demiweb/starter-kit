@@ -6,10 +6,10 @@
 <div class="{{ name }}{% if mod %} {{mod}}{% endif %}" {% for attr, attr_value in attributes %} {{ attr }}="{{ attr_value }}" {% endfor %}>
 {% endif %}
 
-  {% if label.first and label.simple %}
-  <span>{{ label.first }}</span>
+  {% if label.first and label.span %}
+  <span>{{ label.first | safe }}</span>
   {% elseif label.first %}
-  <label>{{ label.first }}</label>
+  <label>{{ label.first | safe }}</label>
   {% endif %}
 
   {% if name === 'input' or name === 'radio' or name === 'checkbox' %}
@@ -24,13 +24,13 @@
   </select>
 
   {% elseif name === 'textarea' %}
-  <textarea {% if fieldClass %}class="{{ fieldClass }}"{% endif %} placeholder="{{ placeholder }}" value="{{value}}" {% for attr, attr_value in fieldAttributes %} {{ attr }}="{{ attr_value }}" {% endfor %}></textarea>
+  <textarea {% if fieldClass %}class="{{ fieldClass }}"{% endif %} {% if placeholder %}placeholder="{{ placeholder }}"{% endif %} {% if value %}value="{{value}}"{% endif %} {% for attr, attr_value in fieldAttributes %} {{ attr }}="{{ attr_value }}" {% endfor %}></textarea>
   {% endif %}
 
-  {% if label.last and label.simple %}
-  <span>{{ label.last }}</span>
+  {% if label.last and label.span %}
+  <span>{{ label.last | safe }}</span>
   {% elseif label.last %}
-  <label>{{ label.last }}</label>
+  <label>{{ label.last | safe }}</label>
   {% endif %}
 
 {% if name === 'checkbox' or name === 'radio' %}

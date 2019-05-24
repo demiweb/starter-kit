@@ -146,8 +146,6 @@
 =scale($var)
   transform: scale($var)
 
-=trsl($x, $y)
-  transform: translate($x, $y)
 
 =tr($what...)
   transition: $what
@@ -182,11 +180,11 @@
 // +icon-close(15, 2, #000)
 
 // icon arrow
-=icon-arrow($width, $height, $bd-width, $color, $angle)
-  width: $width + px
-  height: $height + px
-  border-left: $bd-width + px solid $color
-  border-bottom: $bd-width + px solid $color
+=icon-arrow($width, $height, $bd-width, $color, $angle, $units: px)
+  width: $width + $units
+  height: $height + $units
+  border-left: $bd-width + $units solid $color
+  border-bottom: $bd-width + $units solid $color
   transform: rotate($angle + deg)
 // example
 // +icon-arrow(20, 20, 2, #000, 45)
@@ -216,6 +214,11 @@
 =notlast
   &:not(:last-child)
     @content
+
+=notfirst
+  &:not(:first-child)
+    @content
+
 
 =flex($justify-content: flex-start, $align-items: normal, $flex-direction: row, $flex-wrap: nowrap)
   display: flex
