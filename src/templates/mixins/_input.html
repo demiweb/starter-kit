@@ -1,20 +1,42 @@
-{% macro input(name, mod, type = 'text', placeholder, value, options, fieldClass) %}
+{% macro input(name, mod, type = 'text', placeholder, value, options, fieldClass, attributes, label) %}
 <!-- begin {{ name }} -->
-<div class="{{ name }}{% if mod %} {{mod}}{% endif %}">
-  {% if name === 'input' %}
-  <input {% if fieldClass %}class="{{ fieldClass }}"{% endif %} type="{{ type }}" placeholder="{{ placeholder }}" value="{{value}}">
+{% if name === 'checkbox' or name === 'radio' %}
+<label class="{{ name }}{% if mod %} {{mod}}{% endif %}" {% for attr, attr_value in attributes %} {{ attr }}="{{ attr_value }}" {% endfor %}>
+{% else %}
+<div class="{{ name }}{% if mod %} {{mod}}{% endif %}" {% for attr, attr_value in attributes %} {{ attr }}="{{ attr_value }}" {% endfor %}>
+{% endif %}
+
+  {% if label.first and label.simple %}
+  <span>{{ label.first }}</span>
+  {% elseif label.first %}
+  <label>{{ label.first }}</label>
+  {% endif %}
+
+  {% if name === 'input' or name === 'radio' or name === 'checkbox' %}
+  <input type="{{ type }}" {% if placeholder %}placeholder="{{ placeholder }}"{% endif %} {% if value %}value="{{value}}"{% endif %} {% for attr, attr_value in fieldAttributes %} {{ attr }}="{{ attr_value }}" {% endfor %}>
 
   {% elseif name === 'select' %}
 
-  <select {% if fieldClass %}class="{{ fieldClass }}"{% endif %} data-type="{{ type }}">
+  <select {% if fieldClass %}class="{{ fieldClass }}"{% endif %} data-type="{{ type }}" {% for attr, attr_value in fieldAttributes %} {{ attr }}="{{ attr_value }}" {% endfor %}>
     {% for i in options %}
     <option value="{{ i.value }}">{{ i.option }}</option>
     {% endfor %}
   </select>
 
   {% elseif name === 'textarea' %}
-  <textarea {% if fieldClass %}class="{{ fieldClass }}"{% endif %} placeholder="{{ placeholder }}" value="{{value}}"></textarea>
+  <textarea {% if fieldClass %}class="{{ fieldClass }}"{% endif %} placeholder="{{ placeholder }}" value="{{value}}" {% for attr, attr_value in fieldAttributes %} {{ attr }}="{{ attr_value }}" {% endfor %}></textarea>
   {% endif %}
+
+  {% if label.last and label.simple %}
+  <span>{{ label.last }}</span>
+  {% elseif label.last %}
+  <label>{{ label.last }}</label>
+  {% endif %}
+
+{% if name === 'checkbox' or name === 'radio' %}
+</label>
+{% else %}
 </div>
+{% endif %}
 <!-- end {{ name }} -->
 {% endmacro %}
