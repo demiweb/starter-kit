@@ -1,10 +1,17 @@
 body
   background: #FFF
   line-height: 1.4
-  font-size: 16px
-  // +reg
+  font-size: var(--fz)
+  +reg
   color: $c-text
   +no-scroll
 
+input, textarea
+  font-family: inherit
+  +placeholder
+    font-family: inherit
+
 .icon
   display: inline-block
+  fill: currentColor
+  font-size: inherit

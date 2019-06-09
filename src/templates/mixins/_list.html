@@ -1,7 +1,7 @@
-{% macro list(name, descr, modifications, list, span) %}
+{% macro list(name, descr, modifications, list, isInline) %}
 {% if descr %}
   <!-- begin {{ name }} -->
-  {% if span %}
+  {% if isInline %}
   <span class="{{ name }}{% if modifications.wrap %} {{ modifications.wrap }}{% endif %}">
   {% else %}
   <div class="{{ name }}{% if modifications.wrap %} {{ modifications.wrap }}{% endif %}">
@@ -12,7 +12,7 @@
       <dd {% if modifications.dd or i.modItemDl %}class="{{ modifications.dd }} {{ i.modItemDl }}"{% endif %}>{% if i.dd %}{{ i.dd | safe }}{% endif %}{% if i.link %}<a href="{% if i.href %}{{ i.href }}{% else %}#{% endif %}" {% if modifications.link or i.modLink %}class="{{ modifications.link }} {{ i.modLink }}"{% endif %}>{{ i.link | safe }}</a>{% endif %}</dd>
       {% endfor %}
     </dl>
-  {% if span %}
+  {% if isInline %}
   </span>
   {% else %}
   </div>
@@ -24,7 +24,7 @@
   <!-- begin {{ name }} -->
   {% if name === 'nav' %}
   <nav class="{{ name }}{% if modifications.wrap %} {{ modifications.wrap }}{% endif %}">
-  {% elseif span %}
+  {% elseif isInline %}
   <span class="{{ name }}{% if modifications.wrap %} {{ modifications.wrap }}{% endif %}">
   {% else %}
   <div class="{{ name }}{% if modifications.wrap %} {{ modifications.wrap }}{% endif %}">
@@ -36,7 +36,7 @@
     </ul>
   {% if name === 'nav' %}
   </nav>  
-  {% elseif span %}
+  {% elseif isInline %}
   </span>
   {% else %}
   </div>

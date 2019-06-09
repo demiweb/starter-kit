@@ -9,12 +9,11 @@
     <meta name="theme-color" content="#fff"/>
     <meta name="format-detection" content="telephone=no"/>
     <link rel="stylesheet" media="all" href="css/app.css"/>
-    {# {% include "../partials/_media-tags.html" %} #}
   </head>
-  <body>
+  <body {% if bodyClass %}class="{{ bodyClass }}"{% endif %}>
 
     <!-- BEGIN content -->
-    <div class="out">
+    <div class="out{% if outClass %} {{ outClass }}{% endif %}">
       {% block content %}{% endblock %}
     </div>
     <!-- END content -->
