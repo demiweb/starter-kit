@@ -1,4 +1,4 @@
-{% macro input(name, mod, type = 'text', placeholder, value, options, fieldClass, attributes, label, isInline) %}
+{% macro input(name, mod, type = 'text', placeholder, value, options, fieldClass, fieldAttributes, attributes, label, isInline) %}
 <!-- begin {{ name }} -->
 {% if name === 'checkbox' or name === 'radio' %}
 <label class="{{ name }}{% if mod %} {{mod}}{% endif %}" {% for attr, attr_value in attributes %} {{ attr }}="{{ attr_value }}" {% endfor %}>
@@ -19,9 +19,9 @@
 
   {% elseif name === 'select' %}
 
-  <select {% if fieldClass %}class="{{ fieldClass }}"{% endif %} data-type="{{ type }}" {% for attr, attr_value in fieldAttributes %} {{ attr }}="{{ attr_value }}" {% endfor %}>
+  <select {% if fieldClass %}class="{{ fieldClass }}"{% endif %} {% for attr, attr_value in fieldAttributes %} {{ attr }}="{{ attr_value }}" {% endfor %}>
     {% for i in options %}
-    <option value="{{ i.value }}">{{ i.option }}</option>
+    <option value="{{ i.value }}" {% for attr, attr_value in i.attributes %} {{ attr }}="{{ attr_value }}" {% endfor %}>{{ i.option }}</option>
     {% endfor %}
   </select>
 
