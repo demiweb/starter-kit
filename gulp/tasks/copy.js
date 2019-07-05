@@ -1,6 +1,7 @@
-var gulp = require('gulp');
-var config = require('../config.js');
-var imagemin    = require('gulp-imagemin');
+var gulp     = require('gulp');
+var config   = require('../config.js');
+var imagemin = require('gulp-imagemin');
+var cache    = require('gulp-cache');
 
 gulp.task('copy:fonts', function () {
     return gulp
@@ -20,7 +21,7 @@ gulp.task('copy:img', function () {
             config.src.img + '/**/*.{jpg,png,jpeg,svg,gif,webp}',
             '!' + config.src.img + '/svgo/**/*.*'
         ])
-        .pipe(imagemin())
+        .pipe(cache(imagemin()))
         .pipe(gulp.dest(config.dest.img));
 });
 
