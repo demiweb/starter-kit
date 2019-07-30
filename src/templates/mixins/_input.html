@@ -15,7 +15,7 @@
   {% endif %}
 
   {% if name === 'input' or name === 'radio' or name === 'checkbox' %}
-  <input type="{{ type }}" {% if placeholder %}placeholder="{{ placeholder }}"{% endif %} {% if value %}value="{{value}}"{% endif %} {% for attr, attr_value in fieldAttributes %} {{ attr }}="{{ attr_value }}" {% endfor %}>
+  <input {% if fieldClass %}class="{{ fieldClass }}"{% endif %} type="{{ type }}" {% if placeholder %}placeholder="{{ placeholder }}"{% endif %} {% if value %}value="{{value}}"{% endif %} {% for attr, attr_value in fieldAttributes %} {{ attr }}="{{ attr_value }}" {% endfor %}>
 
   {% elseif name === 'select' %}
 
