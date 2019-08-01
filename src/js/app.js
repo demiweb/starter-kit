@@ -1,7 +1,7 @@
 import { setTouch } from './components/setHTMLClassNames';
-// import sayHello from './lib/sayHello';
+import sayHello from './lib/sayHello';
 
 $(function() {
-  // sayHello();
+  sayHello();
   setTouch();
 });
