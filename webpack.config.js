@@ -1,24 +1,21 @@
 import webpack from 'webpack';
 import path from 'path';
-import util from 'gulp-util';
+// import util from 'gulp-util';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import config from './gulp/config';
 
 function createConfig(env) {
-  let isProduction;
-  let webpackConfig;
-
   if (env === undefined) {
     env = process.env.NODE_ENV;
   }
 
-  isProduction = env === 'production';
+  const isProduction = env === 'production';
 
-  webpackConfig = {
+  const webpackConfig = {
     mode: isProduction ? 'production' : 'development',
     context: path.join(__dirname, config.src.js),
     entry: {
-      app: './app.js',
+      app: ['./app.js'],
     },
     output: {
       path: path.join(__dirname, config.dest.js),
