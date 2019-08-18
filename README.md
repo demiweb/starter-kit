@@ -29,7 +29,7 @@ Task name          | Description
 `nunjucks`         | compile Mozilla's awesome [nunjucks](https://mozilla.github.io/nunjucks/) templates
 `svgo`             | optimize svg files with [svgo](https://github.com/svg/svgo)
 `svgicons`         | create html files in partials from svg to use it inline
-`sprite:png`       | create png sprites
+`sprite-png`       | create png sprites
 `server`           | run dev-server powered by [BrowserSync](https://www.browsersync.io/)
 `clean`            | remove `./build` folder
 `list-pages`       | create index file with links to all project pages
