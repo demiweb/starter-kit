@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 export const {
   $DOC,
   $WIN,
@@ -16,7 +18,7 @@ export const {
   HAS_ERROR,
   HAS_TEXT,
   IS_VALID,
-  IS_FIXED
+  IS_FIXED,
 } = {
   $DOC: $(document),
   $WIN: $(window),
@@ -35,5 +37,5 @@ export const {
   HAS_ERROR: 'has-error',
   HAS_TEXT: 'has-text',
   IS_VALID: 'is-valid',
-  IS_FIXED: 'is-fixed'
+  IS_FIXED: 'is-fixed',
 };

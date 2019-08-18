@@ -26,10 +26,10 @@ export default function sayHello() {
       'text-transform: uppercase',
       'color: #fff',
       'background-color: #ffd800',
-      'padding: 4px 14px'
+      'padding: 4px 14px',
     ].join(';');
 
-    title.split('').forEach(arg => {
+    title.split('').forEach(() => {
       styler.push(symbol);
       styler.push('');
     });
@@ -37,4 +37,4 @@ export default function sayHello() {
     window.console.log(`${staticText} - ${staticUrl}`);
     window.console.log(banner, ...styler);
   }
-};
+}

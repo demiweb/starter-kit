@@ -1,12 +1,12 @@
-const webpack = require('webpack');
-const path = require('path');
-const util = require('gulp-util');
-const config = require('./gulp/config');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+import webpack from 'webpack';
+import path from 'path';
+import util from 'gulp-util';
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+import config from './gulp/config';
 
 function createConfig(env) {
-  let isProduction,
-    webpackConfig;
+  let isProduction;
+  let webpackConfig;
 
   if (env === undefined) {
     env = process.env.NODE_ENV;
@@ -15,10 +15,9 @@ function createConfig(env) {
   isProduction = env === 'production';
 
   webpackConfig = {
-    mode: isProduction?'production':'development',
+    mode: isProduction ? 'production' : 'development',
     context: path.join(__dirname, config.src.js),
     entry: {
-      // vendor: ['jquery'],
       app: './app.js',
     },
     output: {
@@ -26,26 +25,21 @@ function createConfig(env) {
       filename: '[name].js',
       publicPath: 'js/',
     },
-    devtool: isProduction ?
-      '#source-map' :
-      '#cheap-module-eval-source-map',
+    devtool: isProduction
+      ? '#source-map'
+      : '#cheap-module-eval-source-map',
     plugins: [
-      // new webpack.optimize.CommonsChunkPlugin({
-      //     name: 'vendor',
-      //     filename: '[name].js',
-      //     minChunks: Infinity
-      // }),
       new webpack.LoaderOptionsPlugin({
         options: {
           eslint: {
-            formatter: require('eslint-formatter-pretty')
-          }
-        }
+            formatter: require('eslint-formatter-pretty'),
+          },
+        },
       }),
       new webpack.ProvidePlugin({
-        $: 'jquery',
-        jQuery: 'jquery',
-        'window.jQuery': 'jquery',
+        // $: 'jquery',
+        // jQuery: 'jquery',
+        // 'window.jQuery': 'jquery',
       }),
       new webpack.NoEmitOnErrorsPlugin(),
 
@@ -67,8 +61,8 @@ function createConfig(env) {
         'debug.addIndicators': path.resolve('node_modules', 'scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators.js'),
       },
     },
-    optimization :{
-      minimize: isProduction
+    optimization: {
+      minimize: isProduction,
     },
     module: {
       rules: [
@@ -82,8 +76,8 @@ function createConfig(env) {
           options: {
             fix: true,
             cache: true,
-            ignorePattern: __dirname + '/src/js/lib/'
-          }
+            ignorePattern: `${__dirname}/src/js/lib/`,
+          },
         }, {
           test: /\.js$/,
           loader: 'babel-loader',
@@ -92,8 +86,8 @@ function createConfig(env) {
           ],
         },
         {
-            test: /\.glsl$/,
-            loader: 'webpack-glsl-loader'
+          test: /\.glsl$/,
+          loader: 'webpack-glsl-loader',
         }],
     },
   };
@@ -102,7 +96,7 @@ function createConfig(env) {
     webpackConfig.plugins.push(
       new webpack.LoaderOptionsPlugin({
         minimize: true,
-      })
+      }),
     );
   }
 
