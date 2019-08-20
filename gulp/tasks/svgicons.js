@@ -52,6 +52,9 @@ gulp.task('svgicons:create', () => gulp
 
       const h = +svg.attr('height') || +svg.attr('viewBox').split(' ')[3];
       const w = +svg.attr('width') || +svg.attr('viewBox').split(' ')[2];
+      if (!svg.attr('viewBox')) {
+        svg.attr('viewBox', `0 0 ${w} ${h}`);
+      };
       const height = '1em';
       const width = `${(w / h).toFixed(3)}em`;
 
