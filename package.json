@@ -1,6 +1,6 @@
 {
   "name": "starter-kit",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "scripts": {
     "ghpages": "git subtree push --prefix build origin gh-pages",
     "build": "gulp build --production",
@@ -12,7 +12,10 @@
     ]
   },
   "browserslist": [
-    "last 2 versions"
+    "last 2 versions",
+    "ie >= 11",
+    "Android > 4",
+    "IOS >= 10"
   ],
   "authors": "yurayarosh",
   "devDependencies": {
