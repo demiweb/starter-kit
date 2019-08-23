@@ -14,7 +14,13 @@
 
     <!-- BEGIN content -->
     <div class="out{% if outClass %} {{ outClass }}{% endif %}">
-      {% block content %}{% endblock %}
+      {% include "partials/_header.html" %}
+      <!-- begin main -->
+      <main class="main{% if mainClass %} {{ mainClass }}{% endif %}">
+        {% block content %}{% endblock %}
+      </main>
+      <!-- end main -->      
+      {% include "partials/_footer.html" %}
     </div>
     <!-- END content -->
 
