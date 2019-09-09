@@ -1,4 +1,4 @@
-import $ from 'jquery';
+// import $ from 'jquery';
 
 export const {
   $DOC,
@@ -23,11 +23,11 @@ export const {
   IS_VALID,
   IS_FIXED,
 } = {
-  $DOC: $(document),
-  $WIN: $(window),
-  $HTMLBODY: $('html, body'),
-  $HTML: $('html'),
-  $BODY: $('body'),
+  // $DOC: $(document),
+  // $WIN: $(window),
+  // $HTMLBODY: $('html, body'),
+  // $HTML: $('html'),
+  // $BODY: $('body'),
 
   IS_ACTIVE: 'is-active',
   IS_OPEN: 'is-open',
