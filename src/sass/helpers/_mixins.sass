@@ -1,19 +1,19 @@
 // width
 =r($width)
-  @media only screen and (max-width: $width+ "px")
+  @media (max-width: $width+ "px")
     @content
 
 =rmin($width)
-  @media only screen and (min-width: $width+ "px")
+  @media (min-width: $width+ "px")
     @content
 
 // height
 =rh($height)
-  @media only screen and (max-height: $height + "px")
+  @media (max-height: $height + "px")
     @content
 
 =rhmin($height)
-  @media only screen and (min-height: $height + "px")
+  @media (min-height: $height + "px")
     @content
 
 @mixin css-lock($min-size: 1, $max-size: 1.4, $min-width: 20, $max-width: 100, $property: font-size, $unit: px)

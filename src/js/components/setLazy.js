@@ -6,6 +6,8 @@ export default function lazyLoading() {
 
   if (!imgs.length) return;
   imgs.forEach((img) => {
+    img.classList.add('lazy');
+
     const observer = lozad(img, {
       loaded: (el) => {
         if (el.hasAttribute('data-src')) {
@@ -13,7 +15,6 @@ export default function lazyLoading() {
         } else if (el.hasAttribute('data-background-image')) {
           el.removeAttribute('data-background-image');
         }
-        el.classList.add('lazy');
         el.classList.add(IS_LOADED);
       },
     });
