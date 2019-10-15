@@ -28,7 +28,7 @@ Task name          | Description
 `copy`             | copy common files from `./src` path to `./build` path
 `nunjucks`         | compile Mozilla's awesome [nunjucks](https://mozilla.github.io/nunjucks/) templates
 `svgo`             | optimize svg files with [svgo](https://github.com/svg/svgo)
-`svgicons`         | create html files in partials from svg to use it inline
+`svgicons`         | take .svg sources from `./icons` clean and create .html files in `./templates/partials/icons` to use it inline
 `sprite-png`       | create png sprites
 `server`           | run dev-server powered by [BrowserSync](https://www.browsersync.io/)
 `clean`            | remove `./build` folder

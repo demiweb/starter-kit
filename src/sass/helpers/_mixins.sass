@@ -214,3 +214,6 @@
   display: inline-flex
   justify-content: $justify-content
   align-items: $align-items
+
+@function em($size, $context: 16)
+  @return ($size/$context) * 1em
