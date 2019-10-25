@@ -1,11 +1,11 @@
 // import $ from 'jquery';
 
 export const {
-  $DOC,
-  $WIN,
-  $HTMLBODY,
-  $HTML,
-  $BODY,
+  // $DOC,
+  // $WIN,
+  // $HTMLBODY,
+  // $HTML,
+  // $BODY,
 
   IS_ACTIVE,
   IS_OPEN,
