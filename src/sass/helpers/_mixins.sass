@@ -41,8 +41,8 @@
   position: absolute
   top: 0
   left: 0
-  width: 100%
-  height: 100%
+  bottom: 0
+  right: 0
 
 =cover
   background-repeat: no-repeat
@@ -71,9 +71,6 @@
   font: 0/0 a
   text-shadow: none
   color: transparent
-
-=hidetext
-  +hide-text
 
 =vertical
   text-align: center
@@ -225,3 +222,8 @@
 =visible
   visibility: visible
   opacity: 1
+
+=list-bullet
+  &::before
+    content: '\2022'
+    display: inline-block
