@@ -14,12 +14,8 @@
   {% for attr, attrValue in attributes %} {{ attr }}="{{ attrValue }}" {% endfor %}>
 {% endif %}
 
-  {% if label.first and label.first.span %}
-    <span>{{ label.first.title | safe }}</span>
-    {% elseif label.first and label.first.noWrap %}
-      {{ label.first.title | safe }}
-    {% elseif label.first %}
-    <label>{{ label.first.title or label.first | safe }}</label>
+  {% if label.first %}
+    {{ label.first | safe }}    
   {% endif %}
 
   {% if name === 'input' or name === 'radio' or name === 'checkbox' or name === 'attach' %}
@@ -58,12 +54,8 @@
     {% endfor %}></textarea>
   {% endif %}
 
-  {% if label.last and label.last.span %}
-    <span>{{ label.last.title | safe }}</span>
-    {% elseif label.last and label.last.noWrap %}
-      {{ label.last.title | safe }}
-    {% elseif label.last %}
-    <label>{{ label.last.title or label.last | safe }}</label>
+  {% if label.last %}
+    {{ label.last | safe }}
   {% endif %}
 
 {% if name === 'checkbox' or name === 'radio' or name === 'attach' %}

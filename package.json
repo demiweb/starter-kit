@@ -1,6 +1,6 @@
 {
   "name": "starter-kit",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "scripts": {
     "ghpages": "git subtree push --prefix build origin gh-pages",
     "build": "gulp build --production",
@@ -66,6 +66,6 @@
     "core-js": "^3.2.1",
     "intersection-observer": "^0.7.0",
     "jquery": "^3.4.1",
-    "lozad": "^1.9.0"
+    "lozad": "^1.14.0"
   }
 }
