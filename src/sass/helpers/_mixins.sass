@@ -207,10 +207,12 @@
   flex-direction: $flex-direction
   flex-wrap: $flex-wrap
 
-=inline-flex($justify-content: flex-start, $align-items: normal)
+=inline-flex($justify-content: flex-start, $align-items: normal, $flex-direction: row, $flex-wrap: nowrap)
   display: inline-flex
   justify-content: $justify-content
   align-items: $align-items
+  flex-direction: $flex-direction
+  flex-wrap: $flex-wrap
 
 @function em($size, $context: 16)
   @return ($size/$context) * 1em
@@ -227,3 +229,11 @@
   &::before
     content: '\2022'
     display: inline-block
+
+=counter($var, $sep)
+  counter-reset: list + $var
+  > li
+    &:before
+      content: counter(list + $var) $sep
+      counter-increment: list + $var
+      
