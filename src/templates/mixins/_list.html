@@ -1,10 +1,16 @@
-{% macro list(name, descr, modifications, list, isInline) %}
+{% macro list(name, descr, modifications, list, isInline, attributes) %}
 {% if descr %}
   <!-- begin {{ name }} -->
   {% if isInline %}
-  <span class="{{ name }}{% if modifications.wrap %} {{ modifications.wrap }}{% endif %}">
+  <span
+     class="{{ name }}{% if modifications.wrap %} {{ modifications.wrap }}{% endif %}"
+     {% for attr, attrValue in attributes %} {{ attr }}="{{ attrValue }}" {% endfor %}
+    >
   {% else %}
-  <div class="{{ name }}{% if modifications.wrap %} {{ modifications.wrap }}{% endif %}">
+  <div
+     class="{{ name }}{% if modifications.wrap %} {{ modifications.wrap }}{% endif %}"
+     {% for attr, attrValue in attributes %} {{ attr }}="{{ attrValue }}" {% endfor %}
+    >
   {% endif %}
     <dl {% if modifications.list %}class="{{ modifications.list }}"{% endif %}>
       {% for i in list %}
@@ -33,11 +39,20 @@
 
   <!-- begin {{ name }} -->
   {% if name === 'nav' %}
-  <nav class="{{ name }}{% if modifications.wrap %} {{ modifications.wrap }}{% endif %}">
+  <nav
+     class="{{ name }}{% if modifications.wrap %} {{ modifications.wrap }}{% endif %}"
+     {% for attr, attrValue in attributes %} {{ attr }}="{{ attrValue }}" {% endfor %}
+  >
   {% elseif isInline %}
-  <span class="{{ name }}{% if modifications.wrap %} {{ modifications.wrap }}{% endif %}">
+  <span
+     class="{{ name }}{% if modifications.wrap %} {{ modifications.wrap }}{% endif %}"
+     {% for attr, attrValue in attributes %} {{ attr }}="{{ attrValue }}" {% endfor %}
+  >
   {% else %}
-  <div class="{{ name }}{% if modifications.wrap %} {{ modifications.wrap }}{% endif %}">
+  <div
+     class="{{ name }}{% if modifications.wrap %} {{ modifications.wrap }}{% endif %}"
+     {% for attr, attrValue in attributes %} {{ attr }}="{{ attrValue }}" {% endfor %}
+  >
   {% endif %}
     <ul {% if modifications.list %}class="{{ modifications.list }}"{% endif %}>
       {% for i in list %}

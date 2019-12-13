@@ -1,6 +1,7 @@
 import 'core-js/features/symbol'
 import 'core-js/features/array/from'
 import 'core-js/features/promise'
+import 'core-js/features/object/assign'
 import 'intersection-observer'
 import './lib/polyfill'
 

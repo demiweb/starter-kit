@@ -1,6 +1,7 @@
 {
   "name": "starter-kit",
-  "version": "2.0.8",
+  "version": "2.0.9",
+  "authors": "yurayarosh",
   "scripts": {
     "ghpages": "git subtree push --prefix build origin gh-pages",
     "build": "gulp build --production",
@@ -18,7 +19,48 @@
     "IOS >= 10",
     "Android >= 4.4"
   ],
-  "authors": "yurayarosh",
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "env": {
+      "browser": true,
+      "node": true
+    },
+    "extends": [
+      "airbnb-base",
+      "plugin:prettier/recommended"
+    ],
+    "rules": {
+      "no-plusplus": [
+        "error",
+        {
+          "allowForLoopAfterthoughts": true
+        }
+      ],
+      "no-unused-vars": 1,
+      "no-underscore-dangle": 0,
+      "no-param-reassign": 0
+    }
+  },
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "useBuiltIns": "entry",
+          "corejs": {
+            "version": 3,
+            "proposals": true
+          }
+        }
+      ]
+    ]
+  },
+  "prettier": {
+    "printWidth": 100,
+    "trailingComma": "es5",
+    "semi": false,
+    "singleQuote": true
+  },
   "devDependencies": {
     "@babel/core": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
@@ -66,7 +108,7 @@
     "webpack-glsl-loader": "^1.0.1"
   },
   "dependencies": {
-    "core-js": "^3.4.1",
+    "core-js": "^3.5.0",
     "intersection-observer": "^0.7.0",
     "jquery": "^3.4.1",
     "lozad": "^1.14.0"
