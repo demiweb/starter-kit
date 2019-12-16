@@ -18,7 +18,7 @@ export default function lazyLoading() {
       } else if (el.hasAttribute('data-background-image')) {
         el.removeAttribute('data-background-image')
       }
-      el.classList.add(IS_LOADED)
+      el.classList.add(`lazy--${IS_LOADED}`)
     },
   })
   observer.observe()

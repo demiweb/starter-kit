@@ -1,6 +1,6 @@
 {
   "name": "starter-kit",
-  "version": "2.0.9",
+  "version": "2.1.0",
   "authors": "yurayarosh",
   "scripts": {
     "ghpages": "git subtree push --prefix build origin gh-pages",
