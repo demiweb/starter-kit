@@ -1,7 +1,8 @@
 import lozad from 'lozad'
 import { IS_LOADED } from '../constants'
+import classNames from '../classNames'
 
-const JS_LAZY = 'js-lazy'
+const JS_LAZY = classNames.lazy
 
 export default function lazyLoading() {
   const imgs = [...document.querySelectorAll(`.${JS_LAZY}`)]
