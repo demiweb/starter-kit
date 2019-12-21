@@ -34,9 +34,11 @@ class App {
   // }
 
   initMethods() {
-    this.methods.sayHello = sayHello
-    this.methods.setHTMLClassNames = setHTMLClassNames
-    this.methods.setLazy = setLazy
+    this.methods = {
+      sayHello,
+      setHTMLClassNames,
+      setLazy,
+    }
 
     Object.values(this.methods).forEach(fn => fn(this))
   }
@@ -46,7 +48,7 @@ class App {
   }
 
   // onMenuToggle() {
-  //   let { hasMenuOpen } = this.state
+  //   let { hasMenuOpen } = { ...this.state }
   //   hasMenuOpen = !hasMenuOpen
   //   this.updateState({ hasMenuOpen })
 

@@ -28,21 +28,23 @@ export const isWebkit = isChrome || isChromiumBased || isChromeIOS || isSafari |
 
 export const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints
 
-export const BEMblock = (block, name) => {
+export const BEMblock = (node, block) => {
+  const getClassName = mod => `${block}--${mod}`
+
   const addMod = mod => {
-    block.classList.add(`${name}--${mod}`)
+    node.classList.add(getClassName(mod))
   }
   const removeMod = mod => {
-    block.classList.remove(`${name}--${mod}`)
+    node.classList.remove(getClassName(mod))
   }
   const toggleMod = mod => {
-    block.classList.toggle(`${name}--${mod}`)
+    node.classList.toggle(getClassName(mod))
   }
-  const containsMod = mod => block.classList.contains(`${name}--${mod}`)
+  const containsMod = mod => node.classList.contains(getClassName(mod))
 
   return {
-    name,
     block,
+    node,
     addMod,
     toggleMod,
     removeMod,
