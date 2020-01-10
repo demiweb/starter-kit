@@ -24,6 +24,13 @@ class App {
     // this.state = {
     //   hasMenuOpen: false,
     // }
+
+    // this.menu = new Menu({
+    //   classNames: {
+    //     btn: 'burger',
+    //     menu: 'header__nav',
+    //   },
+    // })
   }
 
   // updateState(state) {
@@ -45,6 +52,10 @@ class App {
 
   init() {
     this.initMethods()
+
+    // this.menu.init()
+    // this.menu.onToggle = this.onMenuToggle.bind(this)
+    // this.menu.onClose = this.onMenuClose.bind(this)
   }
 
   // onMenuToggle() {

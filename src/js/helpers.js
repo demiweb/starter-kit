@@ -1,3 +1,5 @@
+// import { debounce } from 'throttle-debounce'
+
 export const {
   isAndroid,
   isCordova,
@@ -51,3 +53,15 @@ export const BEMblock = (node, block) => {
     containsMod,
   }
 }
+
+// export function setVhProperty() {
+//   function setProperty() {
+//     const vh = window.innerHeight * 0.01
+//     document.documentElement.style.setProperty('--vh', `${vh}px`)
+//   }
+
+//   const setPropertyDebounced = debounce(66, setProperty)
+
+//   setProperty()
+//   window.addEventListener('resize', setPropertyDebounced)
+// }
