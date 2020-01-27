@@ -1,6 +1,6 @@
 {
   "name": "starter-kit",
-  "version": "2.1.2",
+  "version": "2.1.3",
   "authors": "yurayarosh",
   "scripts": {
     "ghpages": "git subtree push --prefix build origin gh-pages",
@@ -110,7 +110,6 @@
   "dependencies": {
     "core-js": "^3.6.2",
     "intersection-observer": "^0.7.0",
-    "jquery": "^3.4.1",
     "lozad": "^1.14.0"
   }
 }
