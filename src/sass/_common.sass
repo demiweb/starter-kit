@@ -15,6 +15,7 @@ body
   font-size: inherit
 
 .lazy
-  &.is-loaded:not(.no-fade-in)
+  $this: &
+  &--loaded:not(#{$this}--no-fade-in)
     animation: fadeIn 1s
     
