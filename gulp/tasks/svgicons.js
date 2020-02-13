@@ -58,7 +58,7 @@ gulp.task('svgicons:create', () => gulp
       const height = '1em';
       const width = `${(w / h).toFixed(3)}em`;
 
-      svg.attr('class', `icon icon-${iconName}`);
+      svg.attr('class', `{% if mod %}{{ mod }} {% endif %}icon icon--${iconName}`);
       svg.attr('width', width);
       svg.attr('height', height);
     },
