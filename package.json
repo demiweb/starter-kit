@@ -1,7 +1,8 @@
 {
   "name": "starter-kit",
-  "version": "2.1.3",
+  "version": "2.1.4",
   "authors": "yurayarosh",
+  "license": "ISC",
   "scripts": {
     "ghpages": "git subtree push --prefix build origin gh-pages",
     "build": "gulp build --production",
@@ -110,6 +111,7 @@
   "dependencies": {
     "core-js": "^3.6.2",
     "intersection-observer": "^0.7.0",
-    "lozad": "^1.14.0"
+    "lozad": "^1.14.0",
+    "regenerator-runtime": "^0.13.3"
   }
 }

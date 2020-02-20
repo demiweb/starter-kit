@@ -5,6 +5,7 @@ import 'core-js/features/object/assign'
 import 'core-js/features/object/values'
 import 'intersection-observer'
 import './lib/polyfill'
+// import regeneratorRuntime from 'regenerator-runtime'
 
 import classNames from './classNames'
 

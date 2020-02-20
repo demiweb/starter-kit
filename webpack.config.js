@@ -1,6 +1,5 @@
 import webpack from 'webpack';
 import path from 'path';
-// import util from 'gulp-util';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import config from './gulp/config';
 
@@ -26,18 +25,6 @@ function createConfig(env) {
       ? '#source-map'
       : '#cheap-module-eval-source-map',
     plugins: [
-      new webpack.LoaderOptionsPlugin({
-        options: {
-          eslint: {
-            // formatter: require('eslint-formatter-pretty'),
-          },
-        },
-      }),
-      new webpack.ProvidePlugin({
-        // $: 'jquery',
-        // jQuery: 'jquery',
-        // 'window.jQuery': 'jquery',
-      }),
       new webpack.NoEmitOnErrorsPlugin(),
 
       new BundleAnalyzerPlugin({
@@ -75,7 +62,8 @@ function createConfig(env) {
             cache: true,
             ignorePattern: `${__dirname}/src/js/lib/`,
           },
-        }, {
+        },
+        {
           test: /\.js$/,
           loader: 'babel-loader',
           exclude: [
