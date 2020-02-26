@@ -10,8 +10,10 @@ import './lib/polyfill'
 import classNames from './classNames'
 
 import sayHello from './lib/sayHello'
-import setHTMLClassNames from './components/setHTMLClassNames'
-import setLazy from './components/setLazy'
+import setHTMLClassNames from './methods/setHTMLClassNames'
+import setLazy from './methods/setLazy'
+
+// import Menu from './components/Menu/Menu'
 
 // import { NO_SCROLL } from './constants'
 
