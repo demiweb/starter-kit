@@ -100,28 +100,28 @@
   height: 0px
   border-style: solid
   @if $direction == t
-    border-width: 0 $width / 2 + px $height + px $width / 2 + px
+    border-width: 0 $width / 2 $height $width / 2
     border-color: transparent transparent $bg transparent
   @if $direction == r
-    border-width: $height / 2 + px 0 $height / 2 + px $width + px
+    border-width: $height / 2 0 $height / 2 $width
     border-color: transparent transparent transparent $bg
   @if $direction == b
-    border-width: $height + px $width / 2 + px 0 $width / 2 + px
+    border-width: $height $width / 2 0 $width / 2
     border-color: $bg transparent transparent transparent
   @if $direction == l
-    border-width: $height / 2 + px $width + px $height / 2 + px 0
+    border-width: $height / 2 $width $height / 2 0
     border-color: transparent $bg transparent transparent
   @if $direction == tl
-    border-width: $height + px $width + px 0 0
+    border-width: $height $width 0 0
     border-color: $bg transparent transparent transparent
   @if $direction == tr
-    border-width: 0 $width + px $height + px 0
+    border-width: 0 $width $height 0
     border-color: transparent $bg transparent transparent
   @if $direction == br
-    border-width: 0 0 $height + px $width + px
+    border-width: 0 0 $height $width
     border-color: transparent transparent $bg transparent
   @if $direction == bl
-    border-width: $width + px 0 0 $height + px
+    border-width: $width 0 0 $height
     border-color: transparent transparent transparent $bg
 // example
 // +arr(500,50, #000, l)
@@ -141,13 +141,13 @@
 =icon-close($size, $line-width, $color)
   position: relative
   display: inline-block
-  width: $size + px
-  height: $size + px
+  width: $size
+  height: $size
   &::before,
   &::after
     position: absolute
     content: ''
-    width: $line-width + px
+    width: $line-width
     height: 100%
     background-color: $color
     top: 0
@@ -160,7 +160,7 @@
 // +icon-close(15, 2, #000)
 
 // icon arrow
-=icon-arrow($width, $height, $bd-width, $color, $angle, $units: px)
+=icon-arrow($width, $height, $bd-width, $color, $angle, $units: em)
   width: $width + $units
   height: $height + $units
   border-left: $bd-width + $units solid $color
@@ -200,24 +200,10 @@
     @content
 
 
-=flex($justify-content: flex-start, $align-items: normal, $flex-direction: row, $flex-wrap: nowrap)
-  display: flex
-  justify-content: $justify-content
-  align-items: $align-items
-  flex-direction: $flex-direction
-  flex-wrap: $flex-wrap
-
-=inline-flex($justify-content: flex-start, $align-items: normal, $flex-direction: row, $flex-wrap: nowrap)
-  display: inline-flex
-  justify-content: $justify-content
-  align-items: $align-items
-  flex-direction: $flex-direction
-  flex-wrap: $flex-wrap
-
-@function em($size, $context: 16)
+@function em($size, $context: $base-fz)
   @return ($size/$context) * 1em
 
-@function rem($size, $context: 16)
+@function rem($size, $context: $base-fz)
   @return ($size/$context) * 1rem
 
 =hidden
