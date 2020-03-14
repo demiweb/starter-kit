@@ -51,24 +51,34 @@ If you need a multilanguage version of project, you can create folder `content` 
 Each subdirectory requires `global.json` file with some general data and you can add other `json` files with names, that equivalent to project pages names.  
 In build folder would be generated files with different language versions. Amount of pages would be equivalent to amount of `content` folder subdirectories, filenames would have suffix, equivalent to subdirection name.  
 
-# Structure example
+### Structure example
 
-Source:
-+-- src
-|   +-- languages
-|       +-- en
-|           +-- gloabal.json
-|           +-- page.json
-|       +-- ru
-|           +-- gloabal.json
-|           +-- page.json
-|   +-- templates
-|       +-- page.html
+#### Source:
 
-Generated:
-+-- build
-|   +-- page-en.html
-|   +-- page-ru.html
+    .
+    ├── ...
+    ├── src                    
+    │   ├── languages             
+    │   │   ├── en             
+    │   │   │   ├── global.json
+    │   │   │   ├── page.json
+    │   │   ├── en             
+    │   │   │   ├── global.json
+    │   │   │   ├── page.json
+    │   ├── templates             
+    │   │   ├── page.html
+    │   │   └── ...
+    │   └── ...
+    └── ...
+
+#### Generated:
+
+    .
+    ├── ...
+    ├── build                    
+    │   ├── page-en.html             
+    │   ├── page-ru.html
+    └── ...
 
 
 ## Other
