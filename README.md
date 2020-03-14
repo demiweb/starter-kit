@@ -8,7 +8,6 @@ Clone this repo and then in command line type:
 * `gulp` - run dev-server and let magic happen, or
 * `gulp build` - build project from sources
 
---
 
 ## List of Gulp tasks
 
@@ -45,6 +44,32 @@ We have several useful flags.
 
 * `gulp --open` or `gulp server --open` - run dev server and then open preview in browser
 * `gulp [task_name] --prod` or `gulp [task_name] --production` - run task in production mode. Some of the tasks (like, sass or js compilation) have additional settings for production mode (such as code minification), so with this flag you can force production mode. `gulp build` uses this mode by default.
+
+## Multilanguage version
+
+If you need a multilanguage version of project, you can create folder `content` in `src` directory, then create subdirectories with data files.  
+Each subdirectory requires `global.json` file with some general data and you can add other `json` files with names, that equivalent to project pages names.  
+In build folder would be generated files with different language versions. Amount of pages would be equivalent to amount of `content` folder subdirectories, filenames would have suffix, equivalent to subdirection name.  
+
+# Structure example
+
+Source:
++-- src
+|   +-- languages
+|       +-- en
+|           +-- gloabal.json
+|           +-- page.json
+|       +-- ru
+|           +-- gloabal.json
+|           +-- page.json
+|   +-- templates
+|       +-- page.html
+
+Generated:
++-- build
+|   +-- page-en.html
+|   +-- page-ru.html
+
 
 ## Other
 

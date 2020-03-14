@@ -1,10 +1,10 @@
 import lozad from 'lozad'
-import { IS_LOADED } from '../constants'
 import classNames from '../classNames'
+import { IS_LOADED } from '../constants'
 
-const JS_LAZY = classNames.lazy
+const { lazy: JS_LAZY } = classNames
 
-export default function lazyLoading() {
+export default function setLazy() {
   const imgs = [...document.querySelectorAll(`.${JS_LAZY}`)]
 
   if (!imgs.length) return

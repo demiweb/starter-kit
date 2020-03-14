@@ -1,22 +1,34 @@
-import gulp from 'gulp';
-import consolidate from 'gulp-consolidate';
-import config from '../config';
+import gulp from 'gulp'
+import consolidate from 'gulp-consolidate'
+import 'require-yaml'
+import { src, dest, languageDirectories } from '../config'
 
-import 'require-yaml';
+const renderPages = () => {
+  delete require.cache[require.resolve(`../../${src.pagelist}`)]
+  const pageBlocks = require(`../../${src.pagelist}`)
 
-gulp.task('list-pages', () => {
-  delete require.cache[require.resolve(`../../${config.src.pagelist}`)];
-  const pages = require(`../../${config.src.pagelist}`);
+  const allPages = languageDirectories.map(dir => ({
+    ...pageBlocks,
+    lang: dir,
+  }))
+
   return gulp
     .src(`${__dirname}/index/index.html`)
-    .pipe(consolidate('lodash', {
-      pages,
-    }))
-    .pipe(gulp.dest(config.dest.html));
-});
+    .pipe(
+      consolidate('lodash', {
+        pageBlocks: allPages,
+      })
+    )
+    .pipe(gulp.dest(dest.html))
+}
 
-const build = (gulp) => gulp.parallel('list-pages');
-const watch = (gulp) => () => gulp.watch(`${config.src.root}/*`, gulp.series('list-pages'));
+gulp.task('list-pages', done => {
+  renderPages()
+  done()
+})
 
-module.exports.build = build;
-module.exports.watch = watch;
+const build = gulp => gulp.parallel('list-pages')
+const watch = gulp => () => gulp.watch(`${src.root}/*`, gulp.series('list-pages'))
+
+module.exports.build = build
+module.exports.watch = watch
