@@ -62,7 +62,7 @@ In build folder would be generated files with different language versions. Amoun
     │   │   ├── en             
     │   │   │   ├── global.json
     │   │   │   ├── page.json
-    │   │   ├── en             
+    │   │   ├── ru             
     │   │   │   ├── global.json
     │   │   │   ├── page.json
     │   ├── templates             
