@@ -82,34 +82,41 @@ In build folder would be generated files with different language versions. Amoun
 
 #### JSON structure
 ```json
-// en/global.json
+// languages/en folder
+// global.json
 {
   "sitename": "My awesome site"
 }
-// ru/global.json
-{
-  "sitename": "Мой крутой сайт"
-}
-// en/page.json
+// page.json
 {
   "title": "Main page"
 }
-// ru/page.json
+
+// languages/ru folder
+// global.json
+{
+  "sitename": "Мой крутой сайт"
+}
+// page.json
 {
   "title": "Главная страница"
 }
 ```
 #### HTML template
 ```html
+<!-- Development -->
+
  <!-- templates/page.html -->
 <h1>{{ sitename }}</h1>
 <h2>{{ title }}</h2>
+
+<!-- Generated -->
 
 <!-- build/page-en.html -->
 <h1>My awesome site</h1>
 <h2>Main page</h2>
 
-<!-- build/page-en.html -->
+<!-- build/page-ru.html -->
 <h1>Мой крутой сайт</h1>
 <h2>Главная страница</h2>
 ```
