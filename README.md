@@ -49,7 +49,7 @@ We have several useful flags.
 
 If you need a multilanguage version of project, you can create folder `languages` in `src` directory, then create subdirectories with data files.  
 Each subdirectory requires `global.json` file with some general data and you can add other `json` files with names, that equivalent to project pages names.  
-In build folder would be generated files with different language versions. Amount of pages would be equivalent to amount of `content` folder subdirectories, filenames would have suffix, equivalent to subdirection name.  
+In build folder would be generated files with different language versions. Amount of pages would be equivalent to amount of `languages` folder subdirectories, filenames would have suffix, equivalent to subdirection name.  
 
 ### Structure example
 
