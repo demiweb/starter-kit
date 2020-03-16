@@ -30,6 +30,13 @@ export const isWebkit = isChrome || isChromiumBased || isChromeIOS || isSafari |
 
 export const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints
 
+export const isModernBrowser =
+  'Symbol' in window &&
+  'Promise' in window &&
+  'assign' in Object &&
+  'values' in Object &&
+  'from' in Array
+
 export const BEMblock = (node, block) => {
   const getClassName = mod => `${block}--${mod}`
 

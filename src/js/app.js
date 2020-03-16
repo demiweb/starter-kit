@@ -1,17 +1,11 @@
-import 'core-js/features/symbol'
-import 'core-js/features/array/from'
-import 'core-js/features/promise'
-import 'core-js/features/object/assign'
-import 'core-js/features/object/values'
-import 'intersection-observer'
-import './lib/polyfill'
 // import regeneratorRuntime from 'regenerator-runtime'
 
+import loadPolyfills from './polyfills/loadPolyfills'
 import classNames from './classNames'
-
 import sayHello from './lib/sayHello'
 import setHTMLClassNames from './methods/setHTMLClassNames'
 import setLazy from './methods/setLazy'
+import { isModernBrowser } from './helpers'
 
 // import Menu from './components/Menu/Menu'
 
@@ -91,8 +85,14 @@ class App {
   // }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+const init = () => {
   const app = new App()
   app.init()
   window.app = app
-})
+}
+
+if (isModernBrowser) {
+  document.addEventListener('DOMContentLoaded', init)
+} else {
+  document.addEventListener('DOMContentLoaded', loadPolyfills.bind(null, init))
+}
